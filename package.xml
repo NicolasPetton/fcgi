@@ -1,0 +1,27 @@
+<package>
+  <name>FCGI</name>
+  <namespace>FCGI</namespace>
+  <prereq>Sockets</prereq>
+  <filein>Records/FCGIRecord.st</filein>
+  <filein>Records/FCGIHeader.st</filein>
+  <filein>Records/FCGIParamRecord.st</filein>
+  <filein>Records/FCGIDefaultRecord.st</filein>
+  <filein>Records/FCGIEndRequestRecord.st</filein>
+  <filein>Records/FCGIBeginRequestRecord.st</filein>
+  <filein>Records/FCGIUnknownTypeRecord.st</filein>
+  <filein>Records/Extensions.st</filein>
+  <filein>Protocol/FCGIVersion1.st</filein>
+  <filein>Protocol/FCGIProtocolVersion1.st</filein>
+  <filein>Server/FCGIServer.st</filein>
+  <file>Records/FCGIRecord.st</file>
+  <file>Records/FCGIHeader.st</file>
+  <file>Records/FCGIParamRecord.st</file>
+  <file>Records/FCGIDefaultRecord.st</file>
+  <file>Records/FCGIEndRequestRecord.st</file>
+  <file>Records/FCGIBeginRequestRecord.st</file>
+  <file>Records/FCGIUnknownTypeRecord.st</file>
+  <file>Records/Extensions.st</file>
+  <file>Protocol/FCGIVersion1.st</file>
+  <file>Protocol/FCGIProtocolVersion1.st</file>
+  <file>Server/FCGIServer.st</file>
+</package>
