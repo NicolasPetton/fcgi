@@ -25,7 +25,7 @@ Object subclass: FCGIProtocolVersion1 [
     ]
 
     FCGIProtocolVersion1 class >> logging [
-	^logging ifNil: [logging := true]
+	^logging ifNil: [logging := false]
     ]
 
     FCGIProtocolVersion1 class >> logging: aBoolean [
@@ -85,7 +85,7 @@ Object subclass: FCGIProtocolVersion1 [
 	    doWhileFalse: [record type = ProtocolVersion stdin].
 	requestParams post: record content.
 	self answerRequest.
-	"self sendStdout: ''."
+	self sendStdout: ''.
 	self sendEndRequest.
 	stream flush] 
 		on: Error

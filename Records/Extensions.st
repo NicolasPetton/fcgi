@@ -11,6 +11,7 @@ BlockClosure extend [
     ]
 ]
 
+
 Sockets.Socket extend [
   
     next: anInteger [^impl next: anInteger]
@@ -27,7 +28,7 @@ Sockets.Socket extend [
 
 	(anInteger < 0) | (anInteger >= 8r10000)
 		ifTrue: [self error: 'outside unsigned 16-bit integer range'].
-	impl nextPutBytes: 1 of: anInteger
+	self nextPut: (Character value: anInteger)
     ] 
 
     uint16 [
@@ -76,7 +77,7 @@ Sockets.Socket extend [
 	self uint8: (anInteger digitAt: 4).
 	self uint8: (anInteger digitAt: 3).
 	self uint8: (anInteger digitAt: 2).
-	self uint8: (anInteger digitAt: 1).
+	self uint8: (anInteger digitAt: 1)
     ]
 
     crlf [impl nextPutAll: String crlf]
@@ -87,6 +88,10 @@ Stream extend [
     
     uint8 [
 	^self next asInteger
+    ]
+
+    uint8: anInteger [
+	self nextPut: (Character value: anInteger)
     ]
 
     uint16 [
@@ -104,8 +109,8 @@ Stream extend [
 	(anInteger < 0) | (anInteger >= 16r10000)
 		ifTrue: [self error: 'outside unsigned 16-bit integer range'].
 
-	self nextPut: (anInteger digitAt: 2).
-	self nextPut: (anInteger digitAt: 1).
+	self uint8: (anInteger digitAt: 2).
+	self uint8: (anInteger digitAt: 1).
     ]
 
     uint24 [
@@ -135,10 +140,10 @@ Stream extend [
 	(anInteger < 0) | (anInteger >= 16r100000000)
 		ifTrue: [self error: 'outside unsigned 32-bit integer range'].
 
-	self nextPut: (anInteger digitAt: 4).
-	self nextPut: (anInteger digitAt: 3).
-	self nextPut: (anInteger digitAt: 2).
-	self nextPut: (anInteger digitAt: 1).
+	self uint8: (anInteger digitAt: 4).
+	self uint8: (anInteger digitAt: 3).
+	self uint8: (anInteger digitAt: 2).
+	self uint8: (anInteger digitAt: 1).
     ]
 ]
 

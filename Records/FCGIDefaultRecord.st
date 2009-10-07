@@ -20,7 +20,6 @@ FCGIRecord subclass: FCGIDefaultRecord [
 
     storeOn: aStream [
 	aStream nextPutAll: contentData.
-	self header paddingLength printNl.
 	1 to: self header paddingLength do: [:each | aStream uint8: 0]
     ]
 ]
